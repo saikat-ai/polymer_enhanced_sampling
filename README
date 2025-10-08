@@ -1,2 +1,3 @@
 This repository contains input files and codes for the manuscript titled 'Leveraging Interpretable Machine learning model to accelerate polymer collapse transition via transferable transition state guided collective variable'
+
 There are 3 folders i)C60, ii) C80, iii) reweighting. First two folder contains plumed file for perforing metadynamics simulations along TS-derived-CV. 'Reweighting' folder contains script for metadynamics simulation reweighting.
