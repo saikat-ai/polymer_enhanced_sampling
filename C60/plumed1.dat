@@ -24,7 +24,7 @@ COMBINE LABEL=lt1 ARG=SCALED_COORD,SCALED_RG,SCALED_d COEFFICIENTS=-1.90,-1.1,4.
 
 
 # Metadynamics bias potential along the TS-metad CV
-metad: METAD ARG=lt0 SIGMA=0.38 HEIGHT=2.0 PACE=500 BIASFACTOR=15.0 TEMP=300 GRID_MIN=-0.5 GRID_MAX=4.2
+metad: METAD ARG=lt0 SIGMA=0.35 HEIGHT=2.0 PACE=500 BIASFACTOR=15.0 TEMP=300 GRID_MIN=-0.5 GRID_MAX=4.2
 
 # Print out collective variables for monitoring
 PRINT ARG=lt0,lt1,COORD,r,d,metad.* FILE=colvar1.dat STRIDE=1000
