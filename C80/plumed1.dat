@@ -27,8 +27,8 @@ lwall: LOWER_WALLS ARG=lt0 AT=-0.1 KAPPA=20000 EXP=4 EPS=1.0
 
 # Metadynamics bias potential along the first TICA component
 # Metadynamics bias potential using TICA and hydration shell count as collective variables
-metad: METAD ARG=lt0 SIGMA=0.18, HEIGHT=1.5 PACE=400 BIASFACTOR=30.0 TEMP=300 GRID_MIN=-0.7, GRID_MAX=4.5
+metad: METAD ARG=lt0 SIGMA=0.35, HEIGHT=1.5 PACE=400 BIASFACTOR=30.0 TEMP=300 GRID_MIN=-0.5, GRID_MAX=4.2
 
 # Print out collective variables for monitoring
-PRINT ARG=lt0,lt1,lt2,COORD,r,d,metad.bias FILE=colvar1.dat STRIDE=1000
+PRINT ARG=lt0,COORD,r,d,metad.* FILE=colvar1.dat STRIDE=1000
 
