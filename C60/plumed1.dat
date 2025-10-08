@@ -14,19 +14,17 @@ r: GYRATION ATOMS=1-182
 #compute distance between CA atoms of residues 1 and 40
 d: DISTANCE ATOMS=2,179
 
-# Apply different weights by scaling the collective variables
+# Normalize the collective variables between (0,1)
 SCALED_COORD: MATHEVAL ARG=COORD FUNC=(x-9.0)/(45.0-9.0) PERIODIC=NO
 SCALED_RG: MATHEVAL ARG=r FUNC=(x-0.40)/(1.8-0.40) PERIODIC=NO
-SCALED_d: MATHEVAL ARG=d FUNC=(x-0.40)/(5.0-0.40)  PERIODIC=NO # Weight of 0.5
+SCALED_d: MATHEVAL ARG=d FUNC=(x-0.40)/(5.0-0.40)  PERIODIC=NO 
 
 COMBINE LABEL=lt0 ARG=SCALED_COORD,SCALED_RG,SCALED_d COEFFICIENTS=2.16,1.14,-0.28 PERIODIC=NO
 COMBINE LABEL=lt1 ARG=SCALED_COORD,SCALED_RG,SCALED_d COEFFICIENTS=-1.90,-1.1,4.05 PERIODIC=NO 
 
 
-# Metadynamics bias potential along the first TICA component
-# Metadynamics bias potential using TICA and hydration shell count as collective variables
+# Metadynamics bias potential along the TS-metad CV
 metad: METAD ARG=lt0 SIGMA=0.38 HEIGHT=2.0 PACE=500 BIASFACTOR=15.0 TEMP=300 GRID_MIN=-0.5 GRID_MAX=4.2
 
 # Print out collective variables for monitoring
-PRINT ARG=lt0,lt1,COORD,r,d,metad.bias FILE=colvar1.dat STRIDE=1000
-#PRINT ARG=tic0,tic1 FILE=colvar2.dat STRIDE=2
+PRINT ARG=lt0,lt1,COORD,r,d,metad.* FILE=colvar1.dat STRIDE=1000
