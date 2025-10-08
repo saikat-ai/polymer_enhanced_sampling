@@ -1,7 +1,7 @@
-rg: READ FILE=colvar_upto_90ns.dat IGNORE_TIME VALUES=r
-water: READ FILE=colvar_upto_90ns.dat IGNORE_TIME VALUES=COORD
-metad: READ FILE=colvar_upto_90ns.dat IGNORE_TIME VALUES=metad.bias
-weights1: REWEIGHT_METAD TEMP=300 ARG=metad.bias
+rg: READ FILE=colvar1.dat IGNORE_TIME VALUES=r
+water: READ FILE=colvar1.dat IGNORE_TIME VALUES=COORD
+metad: READ FILE=colvar1.dat IGNORE_TIME VALUES=metad.rbias
+weights1: REWEIGHT_METAD TEMP=300 ARG=metad.rbias
 #weights2: REWEIGHT_BIAS TEMP=300 ARG=uwall.bias
 
 HISTOGRAM ...
